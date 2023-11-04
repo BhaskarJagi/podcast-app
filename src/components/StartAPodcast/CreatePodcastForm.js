@@ -44,17 +44,16 @@ function CreatePodcastForm() {
           bannerImage: bannerImageURL,
           displayImage: displayImageURL,
           createdBy: auth.currentUser.uid,
-        }
+        };
 
-        const docRef = await addDoc (collection(db, "podcasts"), podcastData)
+        const docRef = await addDoc(collection(db, "podcasts"), podcastData);
         toast.success("Podcast created successfully.");
         setLoading(false);
         setTitle("");
         setDescription("");
         setDisplayImage(null);
         setBannerImage(null);
-        navigate("/podcasts")
-        
+        navigate("/podcasts");
       } else {
         toast.error("All fields are required.");
         setLoading(false);

@@ -20,7 +20,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+    const unSubscribeAuth = onAuthStateChanged(auth, (user) => {
       if (user) {
         const unSubscribeSnapshot = onSnapshot(
           doc(db, "users", user.uid),
@@ -48,7 +48,7 @@ function App() {
     });
 
     return () => {
-      unsubscribeAuth();
+      unSubscribeAuth();
     };
   }, []);
 

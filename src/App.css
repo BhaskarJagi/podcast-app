@@ -9,13 +9,13 @@
   margin-top: 4rem;
 }
 
-.input-wrapper h1{
+.input-wrapper h1 {
   font-size: 1.5rem;
   font-weight: 400;
   color: var(--white);
 }
 
-h2{
+h2 {
   font-size: 1.3rem;
   font-weight: 400;
 }
@@ -41,30 +41,34 @@ p.clickable:hover {
   gap: 1.5rem;
 }
 
+.podcast-page {
+  padding-bottom: 100px;
+}
+
 .bannerImage-wrapper {
   background: linear-gradient(
-    177.7deg,
+    180deg,
     rgba(58, 129, 191, 0.3) 1.63%,
     rgba(65, 48, 90, 0.009) 148.18%
   );
   border-radius: 1rem;
-  width: 100%;
+  padding: 1%;
+  width: 98%;
 }
 
 .bannerImage-wrapper img {
   height: 300px;
-  width: 98%;
-  margin: 0.5rem;
+  width: 100%;
   border-radius: 1rem;
   object-fit: cover;
 }
 
-.podcast-title{
+.podcast-title {
   width: 100%;
   text-align: left;
 }
 
-.podcast-description{
+.podcast-description {
   color: var(--purple-grey);
   text-align: left;
   margin-top: 0;

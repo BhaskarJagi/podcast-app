@@ -72,7 +72,7 @@ function PodcastDetailsPage() {
   return (
     <div>
       <Header />
-      <div className="input-wrapper" style={{ marginTop: 0, gap: "1rem" }}>
+      <div className="input-wrapper podcast-page" style={{ marginTop: "2rem", gap: "1rem" }}>
         {podcast.id && (
           <>
             <div

@@ -1,45 +1,54 @@
-.custom-audio-player{
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 0.5rem 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-    background-color: rgba(24, 178, 222, 0.8);
+.custom-audio-player {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(
+    45deg,
+    rgba(104, 212, 241, 0.8),
+    rgba(40, 6, 60, 0.8)
+  );
 }
 
-.display-image-player{
-    height: 30px;
-    width: 30px;
-    object-fit: cover;
-    align-self: center;
+.display-image-player {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  align-self: center;
 }
 
-.duration-range{
-    filter: hue-rotate(25deg);
-    width: 100%;
+.duration-range {
+  filter: hue-rotate(25deg);
+  width: 100%;
 }
 
-.duration-flex{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-    width: 50%;
+.duration-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  width: 50%;
 }
 
-.volume-flex{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-    width: 30%;
+.volume-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  width: 30%;
 }
 
-.volume-range{
-    filter: hue-rotate(25deg);
-    width: 100%;
+.volume-range {
+  filter: hue-rotate(25deg);
+  width: 100%;
 }
+
+.audio-btn {
+  cursor: pointer;
+}
+
