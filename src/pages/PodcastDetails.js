@@ -18,8 +18,9 @@ import AudionPlayer from "../components/Podcasts/AudioPlayer";
 function PodcastDetailsPage() {
   const { id } = useParams();
   const [podcast, setPodcast] = useState({});
-  const [episodeData, setEpisodeData] = useState([]);
+  const [episodesData, setEpisodeData] = useState([]);
   const [playingFile, setPlayingFile] = useState();
+  const [playingTitle, setPlayingTitle] = useState("")
 
   const navigate = useNavigate();
 
@@ -52,12 +53,12 @@ function PodcastDetailsPage() {
     const unSubscribe = onSnapshot(
       query(collection(db, "podcasts", id, "episodes")),
       (querySnapshot) => {
-        const episodeData = [];
+        const episodesData = [];
         querySnapshot.forEach((doc) => {
-          episodeData.push({ id: doc.id, ...doc.data() });
+          episodesData.push({ id: doc.id, ...doc.data() });
         });
-        console.log(episodeData);
-        setEpisodeData(episodeData);
+        // console.log(episodesData);
+        setEpisodeData(episodesData);
       },
       (error) => {
         toast.error("Error fetching episodes.");
@@ -99,9 +100,9 @@ function PodcastDetailsPage() {
             </div>
             <p className="podcast-description">{podcast.description}</p>
             <h1 className="podcast-title">Episodes</h1>
-            {episodeData.length > 0 ? (
+            {episodesData.length > 0 ? (
               <>
-                {episodeData.map((episode, index) => {
+                {episodesData.sort((a,b) => a.id - b.id).map((episode, index) => {
                   return (
                     <EpisodeDetails
                       key={index}
@@ -109,7 +110,11 @@ function PodcastDetailsPage() {
                       title={episode.title}
                       description={episode.description}
                       audioFile={episode.audioFile}
-                      onClick={(file) => setPlayingFile(file)}
+                      onClick={(file,title) => {
+                        setPlayingFile(file)
+                        setPlayingTitle(title)
+                      }
+                      }
                     />
                   );
                 })}
@@ -121,7 +126,7 @@ function PodcastDetailsPage() {
         )}
       </div>
       {playingFile && (
-        <AudionPlayer audioSrc={playingFile} image={podcast.displayImage} />
+        <AudionPlayer audioSrc={playingFile} image={podcast.displayImage} title={playingTitle} />
       )}
     </div>
   );

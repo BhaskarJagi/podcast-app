@@ -1,0 +1,38 @@
+.loader-button-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-button {
+    display: inline-block;
+    position: relative;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+  }
+  .loader-button::after {
+    content: '';  
+    width: 5px;
+    height: 5px;
+    border-radius: 2.5px;
+    background: currentColor;
+    position: absolute;
+    bottom: 10px;
+    right: -5px;
+    box-sizing: border-box;
+    animation: animloader 1s linear infinite;
+  }
+  
+  @keyframes animloader {
+    0% {
+      box-shadow: 10px 0 var(--theme) 20px 0 var(--theme);
+    }
+    50% {
+      box-shadow: 10px 0 var(--theme), 20px 0 var(--theme);
+    }
+    100% {
+      box-shadow: 10px 0 white, 20px 0 white;
+    }
+  }

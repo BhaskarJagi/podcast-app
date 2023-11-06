@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from "react-icons/fa";
 
-function AudionPlayer({ image, audioSrc }) {
+function AudionPlayer({ image, audioSrc, title }) {
   const audioRef = useRef();
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMute, setIsMute] = useState(true);
@@ -42,7 +42,7 @@ function AudionPlayer({ image, audioSrc }) {
     } else {
       audioRef.current.pause();
     }
-  }, [isPlaying]);
+  }, [isPlaying,audioSrc]);
 
   useEffect(() => {
     if (isMute) {
@@ -89,6 +89,7 @@ function AudionPlayer({ image, audioSrc }) {
   return (
     <div className="custom-audio-player">
       <img src={image} className="display-image-player" />
+      <p>{title}</p>
       <audio ref={audioRef} src={audioSrc} />
       <div className="duration-flex">
         <p className="audio-btn" onClick={togglePlay}> {isPlaying ? <FaPause /> : <FaPlay />}</p>

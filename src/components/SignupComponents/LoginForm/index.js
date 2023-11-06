@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../../../slices/userSlice";
 import { toast } from "react-toastify";
+import ButtonLoader from "../../common/ButtonLoader";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -69,7 +70,7 @@ function LoginForm() {
         required={true}
       />
       <Button
-        text={loading ? "Loading..." : "Login"}
+        text={loading ? <ButtonLoader/> : "Login"}
         disabled={loading}
         onClick={handleLogin}
       />

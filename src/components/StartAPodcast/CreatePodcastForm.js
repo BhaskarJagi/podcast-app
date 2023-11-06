@@ -9,6 +9,7 @@ import { auth, db, storage } from "../../firebase.js";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
+
 function CreatePodcastForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

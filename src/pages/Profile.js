@@ -5,6 +5,7 @@ import Button from "../components/common/Button";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { toast } from "react-toastify";
+import Loader from "../components/common/Loader";
 
 function ProfilePage() {
   const user = useSelector((state) => state.user.user);
@@ -22,7 +23,7 @@ function ProfilePage() {
   }
 
   if (!user) {
-    return <p>Loading...</p>;
+    return <Loader/>;
   } else {
     return (
       <div>

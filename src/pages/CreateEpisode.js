@@ -10,6 +10,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { auth, db, storage } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
 
+
 function CreateEpisodePage() {
   const { id } = useParams();
   const [title, setTitle] = useState("");
@@ -39,6 +40,7 @@ function CreateEpisodePage() {
           title: title,
           description: description,
           audioFile: audioURL,
+          id: Date.now(),
         };
 
         await addDoc(
