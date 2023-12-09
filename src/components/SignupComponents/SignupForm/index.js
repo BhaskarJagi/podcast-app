@@ -22,8 +22,7 @@ function SignupForm() {
     setLoading(true);
     if(!fullName || !email || !password || !confirmPassword){
       toast.error("All fields are required!")
-    }
-    if (password === confirmPassword && password.length >= 6) {
+    }else if (password === confirmPassword && password.length >= 6) {
       try {
         //creating user's account
         const userCredential = await createUserWithEmailAndPassword(
