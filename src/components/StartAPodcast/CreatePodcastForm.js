@@ -8,6 +8,8 @@ import FileInput from "../common/Input/FileInput";
 import { auth, db, storage } from "../../firebase.js";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import Loader from "../common/Loader/index.js";
+import ButtonLoader from "../common/ButtonLoader/index.js";
 
 
 function CreatePodcastForm() {
@@ -101,7 +103,7 @@ function CreatePodcastForm() {
         handleFileFnc={handleBannerImage}
       />
       <Button
-        text={loading ? "Loading..." : "Create"}
+        text={loading ? <ButtonLoader/> : "Create"}
         disabled={loading}
         onClick={handleSubmit}
       />

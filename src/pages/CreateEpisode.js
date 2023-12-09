@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { auth, db, storage } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
+import ButtonLoader from "../components/common/ButtonLoader";
 
 
 function CreateEpisodePage() {
@@ -91,7 +92,7 @@ function CreateEpisodePage() {
           handleFileFnc={handleAudioFile}
         />
         <Button
-          text={loading ? "Loading..." : "Create"}
+          text={loading ? <ButtonLoader/> : "Create"}
           disabled={loading}
           onClick={handleSubmit}
         />
